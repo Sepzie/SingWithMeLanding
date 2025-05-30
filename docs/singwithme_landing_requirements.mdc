@@ -1,0 +1,308 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# SingWithMe Landing Page Requirements Document
+
+## Project Overview
+Create a modern, dark-themed landing page for the SingWithMe mobile app using React, Tailwind CSS, and shadcn/ui components. The page should showcase the app's core AI-powered singing practice features with a clean, professional design.
+
+## Design System
+
+### Color Palette
+- **Background:** Dark (#121212 or similar deep tones)
+- **Primary Accents:** 
+  - Neon Blue (#0ff)
+  - Neon Pink (#ff2fd9) 
+  - Neon Green (#39ff14)
+- **Text:** White/off-white for contrast
+- **Cards/Sections:** Dark with subtle borders and glassmorphism effects
+
+### Typography
+- Clean, modern sans-serif font (Inter, Roboto, or system default)
+- Large, bold headings with neon accent colors
+- Clear hierarchy with proper spacing
+
+### Visual Style
+- Dark theme with neon bright accents
+- Glassmorphism cards for feature sections
+- Subtle animations and hover effects with neon glow
+- Modern, minimalist layout with plenty of whitespace
+
+## Page Structure
+
+### 1. Navigation Header
+- Simple, clean navigation bar
+- Logo: "SingWithMe" with neon accent
+- Navigation links: Features, Privacy, Terms
+- Dark background with subtle border
+
+### 2. Hero Section
+**Headline:** "Perfect Your Voice, One Line at a Time"
+**Subheadline:** "Upload any song and get AI-powered vocal training with instant feedback"
+
+**Content:**
+- Brief description of the app's core value proposition
+- Two prominent download buttons:
+  - "Download on App Store" (styled button with Apple logo)
+  - "Get it on Google Play" (styled button with Google Play logo)
+- Hero image: Screenshot of the app's main interface (you'll provide this)
+
+### 3. Core Features Section
+**Section Title:** "How SingWithMe Works"
+
+Create 4 feature cards in a grid layout:
+
+#### Feature 1: "Upload & AI Processing"
+- **Title:** "Upload Any Song"
+- **Description:** "Drop an MP3 and our AI automatically generates synchronized lyrics with perfect timing"
+- **Visual:** Screenshot of upload interface (you'll provide)
+
+#### Feature 2: "Compare & Improve" 
+- **Title:** "Record & Compare"
+- **Description:** "Record yourself singing, then play back your recording and the original side-by-side to hear exactly where to improve"
+- **Visual:** Screenshot of playback comparison interface (you'll provide)
+
+#### Feature 3: "Line-by-Line Practice"
+- **Title:** "Focused Practice"
+- **Description:** "Practice challenging parts with line-by-line controls for precision training"
+- **Visual:** Screenshot of lyrics display with line highlighting (you'll provide)
+
+#### Feature 4: "Multiple Takes"
+- **Title:** "Perfect Every Line"
+- **Description:** "Record unlimited takes for each line and track your progress over time"
+- **Visual:** Screenshot of multiple recordings interface (you'll provide)
+
+### 4. Call-to-Action Section
+- **Title:** "Ready to Improve Your Singing?"
+- **Description:** "Join singers who are already using AI to perfect their voice"
+- **Buttons:** App Store and Google Play download buttons (repeat from hero)
+
+### 5. Footer
+- Simple footer with copyright
+- Links to Privacy Policy and Terms of Service
+- Contact information if desired
+
+## Technical Requirements
+
+### Framework & Tools
+- **React** (latest stable version)
+- **Tailwind CSS** for styling
+- **shadcn/ui** components for consistent, clean UI elements
+- **Next.js** (recommended for SEO and performance)
+
+### Key Components Needed
+- Navigation component
+- Hero section with download buttons
+- Feature card component (reusable)
+- CTA section component
+- Footer component
+- Privacy Policy page component
+- Terms of Service page component
+
+### Responsive Design
+- Mobile-first approach
+- Ensure all elements work well on phone, tablet, and desktop
+- Feature grid should stack on mobile
+- Download buttons should be easily tappable on mobile
+
+### Performance Considerations
+- Optimize images/screenshots for web
+- Lazy loading for below-fold content
+- Fast loading times
+- SEO-friendly structure
+
+## Content Requirements
+
+### Screenshots Needed (you will provide)
+1. App upload interface
+2. Playback comparison screen
+3. Lyrics display with line highlighting
+4. Multiple recordings interface
+5. Main app interface for hero section
+
+### Copy Guidelines
+- Keep copy concise and benefit-focused
+- Use active voice
+- Emphasize the "AI does the work, you focus on singing" angle
+- Highlight immediate feedback and improvement aspects
+
+## Additional Pages
+
+### Privacy Policy Page
+- Standard privacy policy template
+- Sections covering:
+  - Information collection
+  - Data usage
+  - User rights
+  - Contact information
+- Simple, readable layout matching main site design
+
+### Terms of Service Page
+- Standard terms of service template
+- Sections covering:
+  - Service description
+  - User responsibilities
+  - Limitation of liability
+  - Termination
+- Simple, readable layout matching main site design
+
+## Interactive Elements
+- Hover effects on cards with subtle neon glow
+- Smooth transitions between sections
+- Download buttons with hover states
+- Responsive navigation for mobile
+
+## SEO Considerations
+- Proper heading hierarchy (H1, H2, H3)
+- Meta descriptions and title tags
+- Alt text for images
+- Semantic HTML structure
+- Fast loading performance
+
+## Project Organization
+
+### Recommended Structure
+```
+landing-page/
+├── src/
+│   ├── components/
+│   │   ├── ui/              # shadcn/ui components
+│   │   ├── layout/
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── Layout.tsx
+│   │   ├── sections/
+│   │   │   ├── Hero.tsx
+│   │   │   ├── Features.tsx
+│   │   │   └── CTA.tsx
+│   │   └── common/
+│   │       ├── FeatureCard.tsx
+│   │       └── DownloadButtons.tsx
+│   ├── data/
+│   │   ├── content.ts       # All text content
+│   │   ├── features.ts      # Feature data
+│   │   └── links.ts         # URLs and links
+│   ├── assets/
+│   │   └── screenshots/     # App screenshots
+│   ├── pages/
+│   │   ├── index.tsx        # Landing page
+│   │   ├── privacy.tsx      # Privacy policy
+│   │   └── terms.tsx        # Terms of service
+│   └── styles/
+│       └── globals.css      # Tailwind imports
+```
+
+### Content Management Strategy
+
+#### 1. Centralized Content Files
+Create separate data files to avoid hardcoding:
+
+**`src/data/content.ts`**
+```typescript
+export const siteContent = {
+  hero: {
+    title: "Perfect Your Voice, One Line at a Time",
+    subtitle: "Upload any song and get AI-powered vocal training with instant feedback",
+    description: "Join singers who are already using AI to perfect their voice"
+  },
+  features: {
+    sectionTitle: "How SingWithMe Works",
+    // Feature data imported from features.ts
+  },
+  cta: {
+    title: "Ready to Improve Your Singing?",
+    subtitle: "Join singers who are already using AI to perfect their voice"
+  }
+}
+```
+
+**`src/data/features.ts`**
+```typescript
+export const features = [
+  {
+    id: "upload",
+    title: "Upload Any Song",
+    description: "Drop an MP3 and our AI automatically generates synchronized lyrics with perfect timing",
+    screenshot: "/screenshots/upload-interface.png",
+    alt: "SingWithMe upload interface"
+  },
+  // ... other features
+]
+```
+
+**`src/data/links.ts`**
+```typescript
+export const downloadLinks = {
+  appStore: "https://apps.apple.com/app/singwithme", // Update when available
+  googlePlay: "https://play.google.com/store/apps/details?id=com.singwithme", // Update when available
+}
+
+export const legalLinks = {
+  privacy: "/privacy",
+  terms: "/terms"
+}
+```
+
+#### 2. Modular Component Architecture
+
+**Separate modules by functionality:**
+- **Layout components** - Header, Footer, overall page structure
+- **Section components** - Hero, Features, CTA (each as separate files)
+- **Common components** - Reusable elements like FeatureCard, DownloadButtons
+- **Page components** - Complete pages (Privacy, Terms)
+
+#### 3. Asset Management
+- Store all screenshots in `/assets/screenshots/`
+- Use consistent naming convention
+- Include fallback images
+- Implement lazy loading for performance
+
+### Benefits of This Organization
+
+1. **Easy Content Updates**
+   - Change copy in one place (`content.ts`)
+   - Update links without touching components
+   - Add/remove features by modifying data files
+
+2. **Maintainable Code**
+   - Clear separation of concerns
+   - Reusable components
+   - Type-safe content with TypeScript
+
+3. **Scalable Structure**
+   - Easy to add new pages
+   - Simple to add new sections
+   - Ready for CMS integration later if needed
+
+4. **Developer Experience**
+   - Clear file organization
+   - Predictable component structure
+   - Easy to onboard new developers
+
+### Content Management Recommendations
+
+1. **Use TypeScript interfaces** for content structure
+2. **Centralize all text content** - no hardcoded strings in components
+3. **Environment-based configuration** - different content for dev/staging/prod if needed
+4. **Image optimization** - use Next.js Image component for screenshots
+5. **Fallback content** - default values for missing content
+
+## Development Notes
+- Use shadcn/ui components for buttons, cards, and layout elements
+- Implement dark mode as default (no toggle needed)
+- Ensure accessibility with proper contrast ratios
+- Use Tailwind's built-in responsive utilities
+- Keep the design clean and uncluttered - focus on the core message
+- Import all content from data files - avoid hardcoding text in components
+- Use TypeScript for type safety across content and components
+
+## Success Metrics
+The landing page should:
+- Clearly communicate the app's value proposition
+- Encourage app downloads
+- Provide easy access to legal pages
+- Maintain fast loading times
+- Look professional and trustworthy
+- Work perfectly on all device sizes
