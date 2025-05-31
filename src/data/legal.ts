@@ -78,6 +78,10 @@ export const legalContent = {
         content: "By accessing and using SingWithMe, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
       },
       {
+        title: "Eligibility",
+        content: "You must be at least 13 years of age to use SingWithMe. If you are under 18, you must have your parent or legal guardian's permission to use our service. By using our service, you represent and warrant that you meet these requirements."
+      },
+      {
         title: "Service Description",
         content: "SingWithMe is a vocal practice platform that uses AI technology to process uploaded songs and provide automated lyrics transcription. Users can upload songs, receive transcribed lyrics, and practice singing with voice recording and playback comparison tools that allow you to hear your performance alongside the original track."
       },
@@ -93,16 +97,65 @@ export const legalContent = {
         ]
       },
       {
+        title: "Prohibited Content and Uses",
+        content: [
+          "You may not upload or use our service for:",
+          "Copyrighted material without proper authorization",
+          "Content that is illegal, harmful, or violates any laws",
+          "Sexually explicit, violent, or inappropriate material",
+          "Content that infringes on others' rights or privacy",
+          "Malicious files, viruses, or harmful code",
+          "Content that promotes hate speech or discrimination",
+          "Any commercial use without our written permission"
+        ]
+      },
+      {
+        title: "File Limitations and Processing",
+        content: [
+          "Our service has the following technical limitations:",
+          "Maximum file size: 10MB per upload",
+          "Supported formats: MP3",
+          "Processing time may vary based on file size and server load",
+          "We reserve the right to limit uploads if usage becomes excessive",
+          "Files may be automatically deleted after periods of inactivity"
+        ]
+      },
+      {
         title: "Intellectual Property",
         content: "You retain ownership of the audio content you upload. By using our service, you grant SingWithMe a limited license to process your content for the purpose of providing our AI-powered vocal training services. We do not claim ownership of your uploaded content."
       },
       {
+        title: "Service Availability and Disclaimers",
+        content: [
+          "SingWithMe is provided \"as-is\" without warranties of any kind. We do not guarantee:",
+          "100% service uptime or availability",
+          "Accuracy of AI transcription or analysis",
+          "Compatibility with all devices or browsers",
+          "That the service will meet your specific requirements",
+          "That any technical issues will be resolved",
+          "",
+          "We reserve the right to modify, suspend, or discontinue the service at any time."
+        ]
+      },
+      {
         title: "Limitation of Liability",
-        content: "SingWithMe shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the service."
+        content: "SingWithMe shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the service. Our total liability shall not exceed the amount you paid for the service in the past 12 months."
+      },
+      {
+        title: "Indemnification",
+        content: "You agree to defend, indemnify, and hold harmless SingWithMe from any claims, damages, or expenses arising from your use of the service, your uploaded content, or your violation of these Terms."
       },
       {
         title: "Termination",
-        content: "We may terminate or suspend your account and bar access to the service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms."
+        content: "We may terminate or suspend your account and bar access to the service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms. Upon termination, your right to use the service will cease immediately."
+      },
+      {
+        title: "Governing Law and Jurisdiction",
+        content: "These Terms shall be governed by and construed in accordance with the laws of British Columbia, Canada, without regard to conflict of law principles. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of British Columbia."
+      },
+      {
+        title: "Severability",
+        content: "If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect."
       },
       {
         title: "Contact Information",
@@ -114,7 +167,7 @@ export const legalContent = {
       },
       {
         title: "Changes to Terms",
-        content: "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect."
+        content: "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion."
       }
     ]
   },
