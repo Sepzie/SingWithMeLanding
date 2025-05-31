@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Feature } from "@/data/features";
+import { Feature } from "@/data/content";
 import Image from "next/image";
 
 interface FeatureCardProps {

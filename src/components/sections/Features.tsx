@@ -1,7 +1,6 @@
 "use client";
 
 import { siteContent } from "@/data/content";
-import { features } from "@/data/features";
 import { FeatureCard } from "@/components/common/FeatureCard";
 
 export function Features() {
@@ -20,7 +19,7 @@ export function Features() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {features.map((feature, index) => (
+          {siteContent.features.items.map((feature, index) => (
             <div
               key={feature.id}
               className="opacity-0 animate-fade-in h-full"

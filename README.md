@@ -52,8 +52,7 @@ A modern, dark-themed landing page for the SingWithMe mobile app built with Next
 │   │       ├── FeatureCard.tsx
 │   │       └── DownloadButtons.tsx
 │   ├── data/                     # Content and configuration
-│   │   ├── content.ts            # Main page content
-│   │   ├── features.ts           # Feature data
+│   │   ├── content.ts            # Main page content (headlines, descriptions, features)
 │   │   ├── links.ts              # URLs and links
 │   │   └── legal.ts              # Privacy policy & terms content
 │   ├── assets/
@@ -132,8 +131,7 @@ See `FAVICON_SETUP.md` for complete favicon and icon setup instructions.
 
 All content is centralized in data files:
 
-- **`src/data/content.ts`**: Main page content (headlines, descriptions)
-- **`src/data/features.ts`**: Feature cards data
+- **`src/data/content.ts`**: Main page content (headlines, descriptions, features)
 - **`src/data/links.ts`**: Navigation and download links
 - **`src/data/legal.ts`**: Privacy policy and terms of service content
 
