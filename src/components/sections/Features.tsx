@@ -15,7 +15,7 @@ export function Features() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From upload to mastery, our AI-powered platform guides you through every step of improving your singing voice.
+            From upload to practice, our platform helps you improve your singing with any song you love.
           </p>
         </div>
 
@@ -56,9 +56,9 @@ export function Features() {
                 },
                 {
                   number: 2,
-                  title: "AI Separation",
-                  description: "Our AI separates the vocals from the music so you can sing along clearly",
-                  icon: "🤖",
+                  title: "Get Lyrics",
+                  description: "Our AI transcribes the lyrics so you can follow along while singing",
+                  icon: "📝",
                   color: "secondary"
                 },
                 {

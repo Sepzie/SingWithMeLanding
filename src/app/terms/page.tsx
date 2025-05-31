@@ -28,9 +28,10 @@ export default function TermsPage() {
               <section className="space-y-4">
                 <h2 className="text-2xl font-bold text-primary">Service Description</h2>
                 <p className="text-foreground/80 leading-relaxed">
-                  SingWithMe is an AI-powered vocal training platform that allows users to upload songs, 
-                  receive automated vocal separation and lyrics transcription, and practice singing with 
-                  real-time feedback and comparison tools.
+                  SingWithMe is a vocal practice platform that uses AI technology to process uploaded songs 
+                  and provide automated lyrics transcription. Users can upload songs, receive transcribed lyrics, 
+                  and practice singing with voice recording and playback comparison tools that allow you to hear 
+                  your performance alongside the original track.
                 </p>
               </section>
 

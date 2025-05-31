@@ -22,7 +22,7 @@ export function Benefits() {
             {
               icon: "🎼",
               title: "Any Song You Want",
-              description: "Upload any MP3 file and our AI will separate the vocals so you can sing along with just the instrumental."
+              description: "Upload any MP3 file and our AI will transcribe the lyrics so you can follow along while singing."
             },
             {
               icon: "🎤",

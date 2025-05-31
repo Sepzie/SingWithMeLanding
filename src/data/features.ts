@@ -10,7 +10,7 @@ export const features: Feature[] = [
   {
     id: "upload",
     title: "Upload Any Song",
-    description: "Drop an MP3 and our AI automatically generates synchronized lyrics with perfect timing",
+    description: "Upload an MP3 and our AI transcribes the lyrics so you can follow along while practicing",
     screenshot: "/screenshots/upload.png",
     alt: "SingWithMe upload interface"
   },
