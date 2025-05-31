@@ -12,6 +12,17 @@ export const siteContent = {
     subtitle: "Upload any song and practice singing with easy recording and playback comparison",
     description: "Join singers who are already using SingWithMe to practice with their favorite songs"
   },
+  downloadButtons: {
+    appStore: {
+      line1: "Download on the",
+      line2: "App Store"
+    },
+    googlePlay: {
+      line1: "Get it on",
+      line2: "Google Play"
+    },
+    comingSoon: "Coming Soon!"
+  },
   features: {
     sectionTitle: "How SingWithMe Works",
     subtitle: "From upload to practice, our platform helps you improve your singing with any song you love.",
