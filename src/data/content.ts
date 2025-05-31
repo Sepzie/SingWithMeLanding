@@ -127,6 +127,11 @@ export const siteContent = {
       }
     ]
   },
+  notFound: {
+    title: "Page Not Found",
+    description: "Oops! The page you're looking for seems to have gone off-key. Let's get you back to the main stage.",
+    buttonText: "🏠 Go Home"
+  },
   footer: {
     copyright: "© 2025 SingWithMe. All rights reserved.",
     tagline: "Practice singing with any song you love"
