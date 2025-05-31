@@ -22,7 +22,7 @@ export function CTA() {
               {siteContent.cta.subtitle}
             </p>
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Start your vocal training journey today. No subscription required to get started.
+              {siteContent.cta.description}
             </p>
           </div>
 
@@ -31,47 +31,34 @@ export function CTA() {
             
             {/* Enhanced incentives */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-8 text-sm">
-              <div className="flex items-center gap-3 glassmorphism px-4 py-2 rounded-full border border-border/30">
-                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="font-medium">Free to start</span>
-              </div>
-              <div className="flex items-center gap-3 glassmorphism px-4 py-2 rounded-full border border-border/30">
-                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="font-medium">No credit card required</span>
-              </div>
-              <div className="flex items-center gap-3 glassmorphism px-4 py-2 rounded-full border border-border/30">
-                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="font-medium">Instant access</span>
-              </div>
+              {siteContent.cta.incentives.map((incentive, index) => (
+                <div key={index} className="flex items-center gap-3 glassmorphism px-4 py-2 rounded-full border border-border/30">
+                  <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium">{incentive.text}</span>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Final stats */}
           <div className="pt-12 border-t border-border/20">
             <p className="text-lg text-muted-foreground mb-6">
-              Simple singing practice for everyone
+              {siteContent.cta.statsTitle}
             </p>
             <div className="flex justify-center items-center gap-12 opacity-80">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">Easy</div>
-                <div className="text-sm text-muted-foreground">Upload & Practice</div>
-              </div>
-              <div className="w-px h-12 bg-border"></div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">Clear</div>
-                <div className="text-sm text-muted-foreground">Audio Separation</div>
-              </div>
-              <div className="w-px h-12 bg-border"></div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent">Compare</div>
-                <div className="text-sm text-muted-foreground">Your Progress</div>
-              </div>
+              {siteContent.cta.stats.map((stat, index) => (
+                <>
+                  <div key={index} className="text-center">
+                    <div className="text-3xl font-bold text-primary">{stat.value}</div>
+                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  </div>
+                  {index < siteContent.cta.stats.length - 1 && (
+                    <div className="w-px h-12 bg-border"></div>
+                  )}
+                </>
+              ))}
             </div>
           </div>
         </div>

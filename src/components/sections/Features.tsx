@@ -15,7 +15,7 @@ export function Features() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From upload to practice, our platform helps you improve your singing with any song you love.
+            {siteContent.features.subtitle}
           </p>
         </div>
 
@@ -37,8 +37,8 @@ export function Features() {
         {/* Enhanced Process Flow */}
         <div className="mt-24">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-primary mb-4">Simple 4-Step Process</h3>
-            <p className="text-muted-foreground text-lg">Start practicing your singing in minutes</p>
+            <h3 className="text-3xl font-bold text-primary mb-4">{siteContent.features.processTitle}</h3>
+            <p className="text-muted-foreground text-lg">{siteContent.features.processSubtitle}</p>
           </div>
           
           <div className="relative">
@@ -46,36 +46,7 @@ export function Features() {
             <div className="hidden md:block absolute top-6 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent opacity-30"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-              {[
-                {
-                  number: 1,
-                  title: "Upload Song",
-                  description: "Upload any MP3 file from your device - we'll handle the rest",
-                  icon: "🎵",
-                  color: "primary"
-                },
-                {
-                  number: 2,
-                  title: "Get Lyrics",
-                  description: "Our AI transcribes the lyrics so you can follow along while singing",
-                  icon: "📝",
-                  color: "secondary"
-                },
-                {
-                  number: 3,
-                  title: "Record Yourself",
-                  description: "Sing along with the instrumental and record your voice",
-                  icon: "🎤",
-                  color: "accent"
-                },
-                {
-                  number: 4,
-                  title: "Listen & Compare",
-                  description: "Switch between your recording and the original to hear the difference",
-                  icon: "👂",
-                  color: "primary"
-                }
-              ].map((step, index) => (
+              {siteContent.features.process.map((step, index) => (
                 <div key={index} className="relative group">
                   <div className="text-center space-y-4">
                     {/* Step circle */}
