@@ -1,5 +1,6 @@
 import { siteContent } from "@/data/content";
 import { DownloadButtons } from "@/components/common/DownloadButtons";
+import React from "react";
 
 export function CTA() {
   return (
@@ -49,15 +50,15 @@ export function CTA() {
             </p>
             <div className="flex justify-center items-center gap-12 opacity-80">
               {siteContent.cta.stats.map((stat, index) => (
-                <>
-                  <div key={index} className="text-center">
+                <React.Fragment key={index}>
+                  <div className="text-center">
                     <div className="text-3xl font-bold text-primary">{stat.value}</div>
                     <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </div>
                   {index < siteContent.cta.stats.length - 1 && (
                     <div className="w-px h-12 bg-border"></div>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </div>
           </div>
