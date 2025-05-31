@@ -16,7 +16,11 @@ export function Hero() {
       {/* Hero Doodle Image - Desktop only */}
       <div className="hidden lg:block absolute top-16 lg:top-20 right-0 bottom-0 left-0 lg:left-1/2 pointer-events-none">
         <div className="relative w-full h-full flex justify-center lg:justify-start items-start -mt-8 lg:-mt-12">
-          <div className="relative w-[80vw] h-[120vh] lg:w-[45vw] lg:h-[140vh]">
+          <div className="relative w-[80vw] h-[120vh] lg:w-[45vw] lg:h-[140vh]"
+               style={{
+                 mask: 'linear-gradient(to top, transparent 0%, transparent 40%, white 60%)',
+                 WebkitMask: 'linear-gradient(to top, transparent 0%, transparent 40%, white 60%)'
+               }}>
             <Image
               src="/images/hero_doodle.png"
               alt="Neon person singing illustration"
