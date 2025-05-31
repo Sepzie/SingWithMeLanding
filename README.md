@@ -24,32 +24,46 @@ A modern, dark-themed landing page for the SingWithMe mobile app built with Next
 ## 📁 Project Structure
 
 ```
-src/
-├── app/                    # Next.js app router pages
-│   ├── page.tsx           # Landing page
-│   ├── privacy/page.tsx   # Privacy policy
-│   ├── terms/page.tsx     # Terms of service
-│   ├── layout.tsx         # Root layout
-│   └── globals.css        # Global styles
-├── components/
-│   ├── ui/                # shadcn/ui components
-│   ├── layout/            # Layout components
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   └── Layout.tsx
-│   ├── sections/          # Page sections
-│   │   ├── Hero.tsx
-│   │   ├── Features.tsx
-│   │   └── CTA.tsx
-│   └── common/            # Reusable components
-│       ├── FeatureCard.tsx
-│       └── DownloadButtons.tsx
-├── data/                  # Content and configuration
-│   ├── content.ts         # All text content
-│   ├── features.ts        # Feature data
-│   └── links.ts           # URLs and links
-└── assets/
-    └── screenshots/       # App screenshots
+├── docs/                           # Project documentation
+│   ├── vercel-deployment-checklist.md
+│   └── singwithme_landing_requirements.mdc
+├── public/
+│   ├── images/
+│   │   └── hero_doodle.png        # Hero section image
+│   └── screenshots/               # App screenshots (public folder)
+├── src/
+│   ├── app/                       # Next.js app router pages
+│   │   ├── page.tsx              # Landing page
+│   │   ├── privacy/page.tsx      # Privacy policy
+│   │   ├── terms/page.tsx        # Terms of service
+│   │   ├── layout.tsx            # Root layout
+│   │   └── globals.css           # Global styles
+│   ├── components/
+│   │   ├── ui/                   # shadcn/ui components
+│   │   ├── layout/               # Layout components
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── Layout.tsx
+│   │   ├── sections/             # Page sections
+│   │   │   ├── Hero.tsx
+│   │   │   ├── Features.tsx
+│   │   │   └── CTA.tsx
+│   │   └── common/               # Reusable components
+│   │       ├── FeatureCard.tsx
+│   │       └── DownloadButtons.tsx
+│   ├── data/                     # Content and configuration
+│   │   ├── content.ts            # Main page content
+│   │   ├── features.ts           # Feature data
+│   │   ├── links.ts              # URLs and links
+│   │   └── legal.ts              # Privacy policy & terms content
+│   ├── assets/
+│   │   └── screenshots/          # App screenshots (source)
+│   └── lib/                      # Utility functions
+├── FAVICON_SETUP.md              # Icon setup instructions
+├── components.json               # shadcn/ui configuration
+├── tailwind.config.js            # Tailwind configuration
+├── next.config.ts                # Next.js configuration
+└── package.json                  # Dependencies
 ```
 
 ## 🎨 Design System
@@ -90,25 +104,38 @@ src/
 3. **Open your browser**:
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 📱 Screenshots
+## 🖼️ Assets
 
-The landing page expects these screenshot files in `src/assets/screenshots/`:
+### Hero Image
+- **Location**: `public/images/hero_doodle.png`
+- **Usage**: Main hero section visual
 
-- `main-interface.png` - Hero section app screenshot
-- `upload-interface.png` - Upload feature screenshot
-- `playback-comparison.png` - Comparison feature screenshot
-- `lyrics-display.png` - Lyrics display screenshot
-- `multiple-recordings.png` - Recordings management screenshot
+### App Screenshots
+Current screenshots in `src/assets/screenshots/`:
+- `library.png` - Main library interface
+- `player.png` - Player interface
+- `player_lineByLine.png` - Line-by-line mode
+- `player_recording.png` - Recording interface
+- `player_showingRecordingTakes.png` - Recording takes view
+- `upload.png` - Upload interface
+- `upload_songDetails.png` - Song details screen
+- `upload_uploading.png` - Upload progress
+- `upload_processing.png` - Processing screen
+- `upload_processing_2.png` - Alternative processing view
+
+### Icons Setup
+See `FAVICON_SETUP.md` for complete favicon and icon setup instructions.
 
 ## 🔧 Customization
 
 ### Content Management
 
-All text content is centralized in data files:
+All content is centralized in data files:
 
 - **`src/data/content.ts`**: Main page content (headlines, descriptions)
 - **`src/data/features.ts`**: Feature cards data
 - **`src/data/links.ts`**: Navigation and download links
+- **`src/data/legal.ts`**: Privacy policy and terms of service content
 
 ### Styling
 
@@ -122,6 +149,14 @@ All text content is centralized in data files:
 2. Import and add to `src/app/page.tsx`
 3. Add content to appropriate data file
 
+## 📋 Legal Pages
+
+The app includes comprehensive legal pages with content managed in `src/data/legal.ts`:
+
+- **Privacy Policy**: Data collection, usage, security, and user rights
+- **Terms of Service**: Service description, user responsibilities, limitations
+- **Contact Information**: Support email and business address
+
 ## 📈 Performance
 
 - **Lighthouse Score**: Optimized for 95+ scores
@@ -129,32 +164,18 @@ All text content is centralized in data files:
 - **Code Splitting**: Automatic route-based splitting
 - **Lazy Loading**: Below-fold content lazy loaded
 
+## 📚 Documentation
+
+Additional documentation available in `/docs/`:
+- **Deployment Checklist**: Vercel deployment guide
+- **Requirements**: Original project requirements and specifications
+
 ## 🔗 Links
 
-- **Live Demo**: [Update when deployed]
-- **App Store**: [Update when available]
-- **Google Play**: [Update when available]
-
-## 📄 License
-
-[Specify your license here]
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📞 Support
-
-For questions or support regarding the landing page:
-
-- **Email**: dev@singwithme.app
-- **Issues**: [GitHub Issues]
-- **Documentation**: [Link to docs]
+- **Production Site**: [To be updated when deployed]
+- **App Store**: [To be updated when available]
+- **Google Play**: [To be updated when available]
 
 ---
 
-Built with ❤️ for the SingWithMe community
+**SingWithMe** - Proprietary software. All rights reserved.
