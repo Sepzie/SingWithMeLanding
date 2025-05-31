@@ -43,10 +43,10 @@ export function Benefits() {
             {siteContent.benefits.testimonials.map((testimonial, index) => (
               <div key={index} className="glassmorphism p-6 rounded-lg border border-border/50">
                 <div className="flex items-start space-x-4">
-                  <div className={`text-3xl text-${testimonial.color}`}>"</div>
+                  <div className={`text-3xl text-${testimonial.color}`}>&ldquo;</div>
                   <div>
                     <p className="text-foreground/90 mb-4">
-                      "{testimonial.quote}"
+                      &ldquo;{testimonial.quote}&rdquo;
                     </p>
                     <div className="flex items-center space-x-3">
                       <div className={`w-10 h-10 rounded-full bg-${testimonial.color}/20 flex items-center justify-center`}>
