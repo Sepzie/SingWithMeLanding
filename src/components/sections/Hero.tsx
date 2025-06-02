@@ -13,22 +13,41 @@ export function Hero() {
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
       </div>
       
-      {/* Hero Doodle Image - Desktop only */}
-      <div className="hidden lg:block absolute top-16 lg:top-20 right-0 bottom-0 left-0 lg:left-1/2 pointer-events-none">
-        <div className="relative w-full h-full flex justify-center lg:justify-start items-start -mt-8 lg:-mt-12">
-          <div className="relative w-[80vw] h-[120vh] lg:w-[45vw] lg:h-[140vh]"
-               style={{
-                 mask: 'linear-gradient(to top, transparent 0%, transparent 40%, white 60%)',
-                 WebkitMask: 'linear-gradient(to top, transparent 0%, transparent 40%, white 60%)'
-               }}>
-            <Image
-              src="/images/hero_doodle.png"
-              alt="Neon person singing illustration"
-              fill
-              className="object-contain object-top"
-              priority
-              sizes="45vw"
-            />
+      {/* Hero Doodle Image - Responsive for all screens */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="relative w-full h-full flex justify-center lg:justify-end items-start lg:pr-8 -mt-24 sm:-mt-28 lg:-mt-8">
+          <div className="relative w-[60vw] min-w-[320px] h-[80vh] sm:w-[50vw] sm:min-w-[400px] sm:h-[90vh] lg:w-[45vw] lg:min-w-0 lg:h-[100vh] xl:h-[120vh]">
+            {/* Mobile and Tablet - More aggressive gradient, positioned above text */}
+            <div className="lg:hidden absolute inset-0 z-40"
+                 style={{
+                   mask: 'linear-gradient(to top, transparent 0%, transparent 50%, white 70%)',
+                   WebkitMask: 'linear-gradient(to top, transparent 0%, transparent 50%, white 70%)'
+                 }}>
+              <Image
+                src={siteContent.hero.doodle.src}
+                alt={siteContent.hero.doodle.alt}
+                fill
+                className="object-contain object-center opacity-25 sm:opacity-30"
+                priority
+                sizes="(max-width: 640px) 60vw, 50vw"
+              />
+            </div>
+            
+            {/* Desktop - Original gradient, behind text */}
+            <div className="hidden lg:block absolute inset-0 z-10"
+                 style={{
+                   mask: 'linear-gradient(to top, transparent 0%, transparent 30%, white 50%)',
+                   WebkitMask: 'linear-gradient(to top, transparent 0%, transparent 30%, white 50%)'
+                 }}>
+              <Image
+                src={siteContent.hero.doodle.src}
+                alt={siteContent.hero.doodle.alt}
+                fill
+                className="object-contain object-top opacity-60"
+                priority
+                sizes="45vw"
+              />
+            </div>
           </div>
         </div>
       </div>

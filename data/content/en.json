@@ -3,6 +3,10 @@
     "title": "Perfect Your Voice, One Line at a Time",
     "subtitle": "Upload any song and practice singing with easy recording and playback comparison",
     "description": "Join singers who are already using SingWithMe to practice with their favorite songs",
+    "doodle": {
+      "src": "/images/hero_doodle.png",
+      "alt": "Neon person singing illustration"
+    },
     "features": [
       "Any song, any device",
       "Easy recording & playback"
