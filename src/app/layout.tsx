@@ -31,12 +31,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: seoMetadata.openGraph.title,
     description: seoMetadata.openGraph.description,
-    type: seoMetadata.openGraph.type as any,
+    type: "website",
     locale: seoMetadata.openGraph.locale,
     siteName: seoMetadata.openGraph.siteName,
   },
   twitter: {
-    card: seoMetadata.twitter.card as any,
+    card: "summary_large_image",
     title: seoMetadata.twitter.title,
     description: seoMetadata.twitter.description,
     creator: seoMetadata.twitter.creator,

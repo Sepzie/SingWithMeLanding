@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { siteContent } from "@/lib/data";
-import { Apple, Smartphone } from "lucide-react";
 
 interface DownloadButtonsProps {
   className?: string;
