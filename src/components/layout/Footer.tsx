@@ -22,13 +22,13 @@ export function Footer() {
               href={legalLinks.privacy}
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              Privacy Policy
+              {siteContent.footer.navigation.privacy}
             </Link>
             <Link
               href={legalLinks.terms}
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              Terms of Service
+              {siteContent.footer.navigation.terms}
             </Link>
           </div>
         </div>
@@ -37,6 +37,30 @@ export function Footer() {
         <div className="mt-6 pt-6 border-t border-border/20 text-center">
           <p className="text-sm text-muted-foreground">
             {siteContent.footer.copyright}
+          </p>
+        </div>
+
+        {/* Attribution */}
+        <div className="mt-4 text-center">
+          <p className="text-xs text-muted-foreground/80">
+            Landing page template courtesy of{" "}
+            <Link
+              href="https://github.com/Sepzie"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors underline"
+            >
+              Sepehr Zohoori Rad
+            </Link>
+            , can be found on{" "}
+            <Link
+              href="https://github.com/Sepzie/SingWithMeLanding"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors underline"
+            >
+              GitHub
+            </Link>
           </p>
         </div>
       </div>

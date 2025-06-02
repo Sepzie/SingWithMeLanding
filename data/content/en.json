@@ -356,6 +356,10 @@
   },
   "footer": {
     "copyright": "© 2025 SingWithMe. All rights reserved.",
-    "tagline": "Practice singing with any song you love"
+    "tagline": "Practice singing with any song you love",
+    "navigation": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
   }
 }

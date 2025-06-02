@@ -48,18 +48,20 @@ export function CTA() {
             <p className="text-lg text-muted-foreground mb-6">
               {siteContent.cta.statsTitle}
             </p>
-            <div className="flex justify-center items-center gap-12 opacity-80">
-              {siteContent.cta.stats.map((stat, index) => (
-                <React.Fragment key={index}>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
-                  {index < siteContent.cta.stats.length - 1 && (
-                    <div className="w-px h-12 bg-border"></div>
-                  )}
-                </React.Fragment>
-              ))}
+            <div className="overflow-x-auto scrollbar-hide scroll-smooth">
+              <div className="flex justify-center items-center gap-12 opacity-80 min-w-fit px-4">
+                {siteContent.cta.stats.map((stat, index) => (
+                  <React.Fragment key={index}>
+                    <div className="text-center flex-shrink-0">
+                      <div className="text-3xl font-bold text-primary">{stat.value}</div>
+                      <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    </div>
+                    {index < siteContent.cta.stats.length - 1 && (
+                      <div className="w-px h-12 bg-border flex-shrink-0"></div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </div>
         </div>
