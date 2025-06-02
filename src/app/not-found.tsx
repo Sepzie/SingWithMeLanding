@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
-import { siteContent } from "@/data/content";
+import { siteContent } from "@/lib/data";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (

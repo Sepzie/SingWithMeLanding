@@ -1,5 +1,4 @@
-import { siteContent } from "@/data/content";
-import { legalLinks } from "@/data/links";
+import { siteContent, legalLinks, siteName } from "@/lib/data";
 import Link from "next/link";
 
 export function Footer() {
@@ -10,7 +9,7 @@ export function Footer() {
           {/* Logo and tagline */}
           <div className="text-center md:text-left">
             <div className="text-lg font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              SingWithMe
+              {siteName}
             </div>
             <p className="text-sm text-muted-foreground mt-1">
               {siteContent.footer.tagline}

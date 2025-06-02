@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { navigationLinks } from "@/data/links";
+import { navigationLinks, siteName } from "@/lib/data";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -46,7 +46,7 @@ export function Header() {
           <span className={`font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent neon-text transition-all duration-300 ${
             isScrolled ? 'text-2xl' : 'text-2xl lg:text-3xl'
           }`}>
-            SingWithMe
+            {siteName}
           </span>
         </Link>
 

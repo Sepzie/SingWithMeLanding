@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { seoMetadata } from "@/lib/data";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SingWithMe - Perfect Your Voice, One Line at a Time",
-  description: "Upload any song, record yourself singing, and compare your voice with the original. Simple AI-powered vocal separation for better practice.",
-  keywords: "singing practice, vocal separation, voice recording, karaoke, singing app, music practice, vocal training",
-  authors: [{ name: "SingWithMe Team" }],
-  creator: "SingWithMe",
-  publisher: "SingWithMe",
-  robots: "index, follow",
+  title: seoMetadata.title,
+  description: seoMetadata.description,
+  keywords: seoMetadata.keywords,
+  authors: [{ name: seoMetadata.author }],
+  creator: seoMetadata.creator,
+  publisher: seoMetadata.publisher,
+  robots: seoMetadata.robots,
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -28,17 +29,17 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "SingWithMe - Perfect Your Voice, One Line at a Time",
-    description: "Upload any song, record yourself singing, and compare your voice with the original. Simple AI-powered vocal separation for better practice.",
-    type: "website",
-    locale: "en_US",
-    siteName: "SingWithMe",
+    title: seoMetadata.openGraph.title,
+    description: seoMetadata.openGraph.description,
+    type: seoMetadata.openGraph.type as any,
+    locale: seoMetadata.openGraph.locale,
+    siteName: seoMetadata.openGraph.siteName,
   },
   twitter: {
-    card: "summary_large_image",
-    title: "SingWithMe - Perfect Your Voice, One Line at a Time",
-    description: "Upload any song, record yourself singing, and compare your voice with the original. Simple AI-powered vocal separation for better practice.",
-    creator: "@singwithme",
+    card: seoMetadata.twitter.card as any,
+    title: seoMetadata.twitter.title,
+    description: seoMetadata.twitter.description,
+    creator: seoMetadata.twitter.creator,
   },
 };
 

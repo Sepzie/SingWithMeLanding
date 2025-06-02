@@ -1,6 +1,6 @@
 "use client";
 
-import { siteContent } from "@/data/content";
+import { siteContent } from "@/lib/data";
 import { DownloadButtons } from "@/components/common/DownloadButtons";
 import Image from "next/image";
 
@@ -56,18 +56,14 @@ export function Hero() {
               
               {/* Key features list */}
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-muted-foreground">Any song, any device</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-muted-foreground">Easy recording & playback</span>
-                </div>
+                {siteContent.hero.features.map((feature, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-muted-foreground">{feature}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

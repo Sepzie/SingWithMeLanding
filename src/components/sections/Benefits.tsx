@@ -1,6 +1,6 @@
 "use client";
 
-import { siteContent } from "@/data/content";
+import { siteContent } from "@/lib/data";
 
 export function Benefits() {
   return (

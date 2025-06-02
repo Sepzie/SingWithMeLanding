@@ -1,7 +1,8 @@
 "use client";
 
-import { siteContent } from "@/data/content";
+import { siteContent } from "@/lib/data";
 import { FeatureCard } from "@/components/common/FeatureCard";
+import React from "react";
 
 export function Features() {
   return (

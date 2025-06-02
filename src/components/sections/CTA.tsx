@@ -1,4 +1,4 @@
-import { siteContent } from "@/data/content";
+import { siteContent } from "@/lib/data";
 import { DownloadButtons } from "@/components/common/DownloadButtons";
 import React from "react";
 

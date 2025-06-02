@@ -1,0 +1,43 @@
+{
+  "theme": "dark",
+  "colors": {
+    "background": "222.2 84% 4.9%",
+    "foreground": "210 40% 98%",
+    "card": "222.2 84% 4.9%",
+    "cardForeground": "210 40% 98%",
+    "popover": "222.2 84% 4.9%",
+    "popoverForeground": "210 40% 98%",
+    "primary": "180 100% 50%",
+    "primaryForeground": "222.2 84% 4.9%",
+    "secondary": "315 100% 50%",
+    "secondaryForeground": "222.2 84% 4.9%",
+    "accent": "115 100% 50%",
+    "accentForeground": "222.2 84% 4.9%",
+    "muted": "217.2 32.6% 17.5%",
+    "mutedForeground": "215 20.2% 65.1%",
+    "destructive": "0 84.2% 60.2%",
+    "destructiveForeground": "210 40% 98%",
+    "border": "217.2 32.6% 17.5%",
+    "input": "217.2 32.6% 17.5%",
+    "ring": "212.7 26.8% 83.9%"
+  },
+  "chartColors": {
+    "chart1": "220 70% 50%",
+    "chart2": "160 60% 45%",
+    "chart3": "30 80% 55%",
+    "chart4": "280 65% 60%",
+    "chart5": "340 75% 55%"
+  },
+  "neonColors": {
+    "blue": "#00ffff",
+    "pink": "#ff2fd9", 
+    "green": "#39ff14"
+  },
+  "description": {
+    "background": "Dark theme (#121212)",
+    "primary": "Neon Blue (#00ffff)",
+    "secondary": "Neon Pink (#ff2fd9)",
+    "accent": "Neon Green (#39ff14)",
+    "text": "White/off-white for contrast"
+  }
+} 

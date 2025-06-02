@@ -1,0 +1,37 @@
+{
+  "siteName": "SingWithMe",
+  "siteDescription": "Perfect Your Voice, One Line at a Time. Upload any song and practice singing with easy recording and playback comparison.",
+  "siteUrl": "https://singwithme.app",
+  "companyName": "SingWithMe",
+  "contactEmail": "singwithme.app@gmail.com",
+  "footerTagline": "Practice singing with any song you love",
+  "appStoreUrl": "https://apps.apple.com/app/singwithme",
+  "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.singwithme",
+  "locale": "en",
+  "seoKeywords": "singing practice, vocal training, AI transcription, music, karaoke, voice recording, singing app",
+  "twitterHandle": "@singwithme",
+  "copyright": "© 2025 SingWithMe. All rights reserved.",
+  "businessAddress": "1939 Parkway Blvd, Coquitlam, BC, V3E 3L5",
+  "seo": {
+    "title": "SingWithMe - Perfect Your Voice, One Line at a Time",
+    "description": "Upload any song, record yourself singing, and compare your voice with the original. Simple AI-powered vocal separation for better practice.",
+    "keywords": "singing practice, vocal separation, voice recording, karaoke, singing app, music practice, vocal training",
+    "author": "SingWithMe Team",
+    "creator": "SingWithMe",
+    "publisher": "SingWithMe",
+    "robots": "index, follow",
+    "openGraph": {
+      "title": "SingWithMe - Perfect Your Voice, One Line at a Time",
+      "description": "Upload any song, record yourself singing, and compare your voice with the original. Simple AI-powered vocal separation for better practice.",
+      "type": "website",
+      "locale": "en_US",
+      "siteName": "SingWithMe"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "SingWithMe - Perfect Your Voice, One Line at a Time",
+      "description": "Upload any song, record yourself singing, and compare your voice with the original. Simple AI-powered vocal separation for better practice.",
+      "creator": "@singwithme"
+    }
+  }
+} 

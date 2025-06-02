@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
-import { LegalPage as LegalPageType } from "@/data/legal";
+import { LegalPage as LegalPageType } from "@/lib/data";
 
 interface LegalPageProps {
   pageData: LegalPageType;
