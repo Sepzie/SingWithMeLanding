@@ -114,16 +114,10 @@ The color scheme is now centralized in `data/color_scheme.json` for easy customi
 
 ### App Screenshots
 Current screenshots in `src/assets/screenshots/`:
-- `library.png` - Main library interface
-- `player.png` - Player interface
 - `player_lineByLine.png` - Line-by-line mode
 - `player_recording.png` - Recording interface
 - `player_showingRecordingTakes.png` - Recording takes view
 - `upload.png` - Upload interface
-- `upload_songDetails.png` - Song details screen
-- `upload_uploading.png` - Upload progress
-- `upload_processing.png` - Processing screen
-- `upload_processing_2.png` - Alternative processing view
 
 ### Icons Setup
 See `FAVICON_SETUP.md` for complete favicon and icon setup instructions.
