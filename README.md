@@ -1,192 +1,169 @@
 # SingWithMe Landing Page
 
-A modern, dark-themed landing page for the SingWithMe mobile app built with Next.js, Tailwind CSS, and shadcn/ui components. **This template is designed to be easily reusable for other landing pages** - simply customize the JSON data files to match your project!
+A sleek, dark-themed landing page for the SingWithMe mobile app, built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**. Designed to be **easily customizable** — just edit a few JSON files and you're good to go.
 
-## 🚀 Features
+---
 
-- **Dark Theme with Neon Accents**: Beautiful dark interface with cyan, pink, and green neon highlights
-- **Responsive Design**: Mobile-first approach that works perfectly on all devices
-- **Modern UI Components**: Built with shadcn/ui for consistent, accessible components
-- **Glassmorphism Effects**: Subtle glass-like effects for feature cards and sections
-- **SEO Optimized**: Proper meta tags, structured data, and semantic HTML
-- **Fast Performance**: Optimized images, lazy loading, and efficient code splitting
-- **Interactive Animations**: Smooth hover effects and fade-in animations
+## 🚀 Key Features
+
+* **Modern UI**: Dark mode with neon accents (blue, pink, green)
+* **Responsive Design**: Looks great on all devices
+* **Authentication Ready**: Email/password + Google login via Firebase
+* **Account Management**: Reset password & delete account (App Store compliant)
+* **Fast & Optimized**: Image optimization, lazy loading, code splitting
+* **Customizable Content**: All text and styles externalized to JSON
+* **i18n Ready**: Language content externalized for translation
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS
-- **Components**: shadcn/ui
-- **Typography**: Inter font
-- **Language**: TypeScript
-- **Image Optimization**: Next.js Image component
+| Layer          | Tools                                                                     |
+| -------------- | ------------------------------------------------------------------------- |
+| Framework      | [Next.js 15](https://nextjs.org) (App Router)                             |
+| Styling        | [Tailwind CSS](https://tailwindcss.com)                                   |
+| Components     | [shadcn/ui](https://ui.shadcn.dev), [Radix UI](https://www.radix-ui.com/) |
+| Auth & Backend | Firebase Authentication & Cloud Functions                                 |
+| Language       | TypeScript                                                                |
+| Fonts          | Inter                                                                     |
+
+---
 
 ## 📁 Project Structure
 
-```
-├── data/                         # 🆕 Centralized JSON data files
-│   ├── site_identity.json        # Site branding and identity
-│   ├── color_scheme.json         # Theme colors and design tokens
-│   └── content/
-│       └── en.json               # English content (easily translatable)
-├── docs/                         # Project documentation
-│   ├── vercel-deployment-checklist.md
-│   └── singwithme_landing_requirements.mdc
-├── public/
-│   ├── images/
-│   │   └── hero_doodle.png       # Hero section image
-│   └── screenshots/              # App screenshots (public folder)
-├── src/
-│   ├── app/                      # Next.js app router pages
-│   │   ├── page.tsx             # Landing page
-│   │   ├── privacy/page.tsx     # Privacy policy
-│   │   ├── terms/page.tsx       # Terms of service
-│   │   ├── layout.tsx           # Root layout
-│   │   └── globals.css          # Global styles
-│   ├── components/
-│   │   ├── ui/                  # shadcn/ui components
-│   │   ├── layout/              # Layout components
-│   │   │   ├── Header.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   └── Layout.tsx
-│   │   ├── sections/            # Page sections
-│   │   │   ├── Hero.tsx
-│   │   │   ├── Features.tsx
-│   │   │   └── CTA.tsx
-│   │   └── common/              # Reusable components
-│   │       ├── FeatureCard.tsx
-│   │       └── DownloadButtons.tsx
-│   ├── assets/
-│   │   └── screenshots/         # App screenshots (source)
-│   └── lib/                     # Utility functions
-├── FAVICON_SETUP.md             # Icon setup instructions
-├── components.json              # shadcn/ui configuration
-├── tailwind.config.js           # Tailwind configuration
-├── next.config.ts               # Next.js configuration
-└── package.json                 # Dependencies
+```txt
+data/                    # Site identity, color scheme, and text content
+docs/                    # Setup and deployment documentation
+public/
+  images/               # Hero image and visual assets
+  screenshots/          # App screenshots
+  favicon.ico           # Favicon and app icons
+src/
+  app/                  # App routes and global styles
+  components/           # UI and layout components
+  assets/               # (optional legacy assets)
+  lib/                  # Utilities and Firebase config
+tailwind.config.js       # Tailwind theme
+next.config.ts           # Next.js settings
 ```
 
-## 🎨 Design System
+---
 
-### Color Palette
+## 🔧 Customization Guide
 
-The color scheme is now centralized in `data/color_scheme.json` for easy customization:
+Everything is JSON-driven for fast edits:
 
-- **Background**: Dark (#121212)
-- **Primary Accent**: Neon Blue (#00ffff)
-- **Secondary Accent**: Neon Pink (#ff2fd9)
-- **Accent**: Neon Green (#39ff14)
-- **Text**: White/off-white for contrast
+| File                      | Description                           |
+| ------------------------- | ------------------------------------- |
+| `data/site_identity.json` | Branding, URLs, and contact info      |
+| `data/color_scheme.json`  | Color theme tokens                    |
+| `data/content/en.json`    | UI content, feature blurbs, auth text |
 
-### Typography
+To make it your own:
 
-- **Font**: Inter (clean, modern sans-serif)
-- **Hierarchy**: Clear heading structure with proper spacing
-- **Neon Effects**: Text shadows and glows for accent colors
+1. Update branding and content in `data/`
+2. Replace images in `public/screenshots/` and `public/images/`
+3. Customize styles in `src/app/globals.css`
+4. Set up your Firebase project (see below)
 
-### Visual Effects
+---
 
-- **Glassmorphism**: Subtle backdrop blur and transparency
-- **Neon Glows**: Box shadows for interactive elements
-- **Gradient Borders**: Multi-color borders for special elements
-- **Smooth Animations**: Fade-in effects and hover transitions
+## 🔐 Auth & Account Pages
 
-## 🚀 Getting Started
+Visit `/account` to test full authentication features:
 
-1. **Install dependencies**:
+| Feature             | Description                                         |
+| ------------------- | --------------------------------------------------- |
+| Sign In             | Email/password or Google OAuth                      |
+| Reset Password      | Email-based reset for email users                   |
+| Delete Account      | Multi-step deletion flow (App Store compliant)      |
+| Auth Provider Logic | Handles different login methods + re-authentication |
+
+> ✅ CORS is configured. Auth errors are handled gracefully.
+
+---
+
+## 🚀 Quickstart
+
+1. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-2. **Run the development server**:
+2. **Set up Firebase**
+
+   * Enable Email/Password and Google sign-in
+   * Create `.env.local`:
+
+     ```env
+     NEXT_PUBLIC_FIREBASE_API_KEY=...
+     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=...
+     NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
+     ...
+     ```
+
+3. **Run the app**
+
    ```bash
    npm run dev
    ```
 
-3. **Open your browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 🖼️ Assets
-
-### Hero Image
-- **Location**: `public/images/hero_doodle.png`
-- **Usage**: Main hero section visual
-
-### App Screenshots
-Current screenshots in `src/assets/screenshots/`:
-- `player_lineByLine.png` - Line-by-line mode
-- `player_recording.png` - Recording interface
-- `player_showingRecordingTakes.png` - Recording takes view
-- `upload.png` - Upload interface
-
-### Icons Setup
-See `FAVICON_SETUP.md` for complete favicon and icon setup instructions.
-
-## �� Customization
-
-### 🆕 New JSON-Based Content Management
-
-All content is now centralized in easy-to-edit JSON files in the `/data` directory:
-
-- **`data/site_identity.json`**: Site name, description, contact info, URLs, and branding
-- **`data/color_scheme.json`**: Complete color palette and theme configuration  
-- **`data/content/en.json`**: All text content, features, testimonials, and legal pages
-
-### Making This Template Your Own
-
-To customize this landing page for your own project:
-
-1. **Update Site Identity**: Edit `data/site_identity.json` with your app/company details
-2. **Customize Colors**: Modify `data/color_scheme.json` to match your brand colors
-3. **Replace Content**: Update `data/content/en.json` with your own text, features, and testimonials
-4. **Add Your Screenshots**: Replace images in `public/screenshots/` with your app screenshots
-5. **Update Styling**: Modify global styles in `src/app/globals.css` if needed
-
-### Legacy TypeScript Data Files
-
-The original TypeScript data files in `src/data/` are still present for backward compatibility but will be deprecated in favor of the new JSON structure. When updating your implementation, prefer importing from the new JSON files.
-
-## 📋 Legal Pages
-
-The app includes comprehensive legal pages with content managed in `src/data/legal.ts`:
-
-- **Privacy Policy**: Data collection, usage, security, and user rights
-- **Terms of Service**: Service description, user responsibilities, limitations
-- **Contact Information**: Support email and business address
-
-## 📈 Performance
-
-- **Lighthouse Score**: Optimized for 95+ scores
-- **Image Optimization**: Automatic Next.js image optimization
-- **Code Splitting**: Automatic route-based splitting
-- **Lazy Loading**: Below-fold content lazy loaded
-
-## 📚 Documentation
-
-Additional documentation available in `/docs/`:
-- **Deployment Checklist**: Vercel deployment guide
-- **Requirements**: Original project requirements and specifications
-
-## 🔗 Links
-
-- **Production Site**: [To be updated when deployed]
-- **App Store**: [To be updated when available]
-- **Google Play**: [To be updated when available]
+4. **Open in browser**
+   [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🤝 Open Source Template
+## 🖼️ Assets
 
-**This landing page template is freely available for others to use!** 
+| Asset           | Location                        |
+| --------------- | ------------------------------- |
+| Hero Image      | `public/images/hero_doodle.png` |
+| App Screenshots | `public/screenshots/`           |
+| Favicon & Icons | `public/`                       |
 
-We've designed this SingWithMe landing page to be easily adaptable for any app or service. The modular structure and JSON-based content management make it simple to customize for your own project. 
+Screenshots include:
 
-Feel free to:
-- Use this template for your own landing page
-- Customize the design and content to match your brand
-- Adapt the structure for different types of applications
-- Contribute improvements back to the community
+* Line-by-line mode
+* Recording interface
+* Upload UI
+* Takes view
 
-Simply update the JSON files in the `/data` directory with your own content, replace the screenshots with your app images, and you'll have a professional landing page ready to go!
+---
 
-**SingWithMe** - Built with ❤️ and made available for the community.
+## 📋 Legal Pages
+
+Legal content lives in `src/app/privacy/` and `src/app/terms/`, with text managed via JSON in `data/content/en.json`.
+
+---
+
+## 📈 Performance Notes
+
+* Lighthouse Score: 95+
+* Lazy loading for below-the-fold content
+* Optimized images via Next.js `<Image>`
+
+---
+
+## 🧪 Docs & Deployment
+
+* **Firebase Setup**: `FIREBASE_SETUP.md`
+* **Deployment Checklist**: `docs/vercel-deployment-checklist.md`
+* **Project Requirements**: `docs/singwithme_landing_requirements.mdc`
+
+---
+
+## 💡 Reusability
+
+This is a fully modular landing page template. You can:
+
+* Drop in your branding and screenshots
+* Swap content with your own in the `/data` folder
+* Adjust theme colors without digging into code
+* Use it for SaaS, mobile apps, or side projects
+
+---
+
+## 📄 License
+
+This template is open-source. Built with ❤️ for the community.
