@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp, FirebaseApp } from 'firebase/app';
 import { 
   getAuth, 
   GoogleAuthProvider,
@@ -9,7 +9,7 @@ import {
   reauthenticateWithPopup,
   EmailAuthProvider
 } from 'firebase/auth';
-import { getFunctions, httpsCallable } from 'firebase/functions';
+import { getFunctions, httpsCallable, Functions } from 'firebase/functions';
 
 const firebaseConfig = {
   // These should be replaced with your actual Firebase config
@@ -21,30 +21,58 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Validate Firebase configuration
+const isValidFirebaseConfig = Object.values(firebaseConfig).every(value => value && value !== '');
 
-// Initialize Firebase Authentication and get a reference to the service
+// Create a minimal config for build time
+const fallbackConfig = {
+  apiKey: "demo-key",
+  authDomain: "demo.firebaseapp.com",
+  projectId: "demo-project",
+  storageBucket: "demo.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "demo-app-id"
+};
+
+// Initialize Firebase with proper config or fallback
+let app: FirebaseApp;
+let functions: Functions | undefined;
+
+if (typeof window !== 'undefined' && isValidFirebaseConfig) {
+  // Client-side with valid config
+  app = initializeApp(firebaseConfig);
+  functions = getFunctions(app);
+} else if (typeof window !== 'undefined') {
+  // Client-side with invalid config
+  console.warn('Firebase configuration is incomplete. Auth features will not work.');
+  app = initializeApp(fallbackConfig);
+} else {
+  // Server-side (build time)
+  app = initializeApp(fallbackConfig);
+}
+
+// Always export a valid auth object
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
-// Initialize Firebase Functions
-const functions = getFunctions(app);
-
-// Auth functions
+// Auth functions with proper validation
 export const signInWithEmail = async (email: string, password: string) => {
+  if (!isValidFirebaseConfig) throw new Error('Firebase configuration is incomplete');
   return signInWithEmailAndPassword(auth, email, password);
 };
 
 export const signInWithGoogle = async () => {
+  if (!isValidFirebaseConfig) throw new Error('Firebase configuration is incomplete');
   return signInWithPopup(auth, googleProvider);
 };
 
 export const resetPassword = async (email: string) => {
+  if (!isValidFirebaseConfig) throw new Error('Firebase configuration is incomplete');
   return sendPasswordResetEmail(auth, email);
 };
 
 export const deleteUserAccount = async () => {
+  if (!isValidFirebaseConfig || !functions) throw new Error('Firebase not properly configured');
   const user = auth.currentUser;
   if (!user) {
     throw new Error('No user is currently signed in');
@@ -63,6 +91,7 @@ export const deleteUserAccount = async () => {
 };
 
 export const reauthenticateUser = async (password?: string) => {
+  if (!isValidFirebaseConfig) throw new Error('Firebase configuration is incomplete');
   const user = auth.currentUser;
   if (!user) {
     throw new Error('No user is currently signed in');
