@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { resetPassword } from '@/lib/firebase';
+import { authContent } from '@/lib/data';
 
 interface PasswordResetDialogProps {
   children: React.ReactNode;
@@ -36,16 +37,19 @@ export function PasswordResetDialog({ children, onResetSent }: PasswordResetDial
       await resetPassword(email);
       setSuccess(true);
       onResetSent?.();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Password reset failed:', error);
-      let errorMessage = 'Failed to send password reset email';
+      let errorMessage = authContent.passwordReset.errors.sendFailed;
       
-      if (error.code === 'auth/user-not-found') {
-        errorMessage = 'No account found with this email address';
-      } else if (error.code === 'auth/invalid-email') {
-        errorMessage = 'Please enter a valid email address';
-      } else if (error.code === 'auth/too-many-requests') {
-        errorMessage = 'Too many requests. Please try again later';
+      if (error && typeof error === 'object' && 'code' in error) {
+        const firebaseError = error as { code: string };
+        if (firebaseError.code === 'auth/user-not-found') {
+          errorMessage = authContent.passwordReset.errors.userNotFound;
+        } else if (firebaseError.code === 'auth/invalid-email') {
+          errorMessage = authContent.passwordReset.errors.invalidEmail;
+        } else if (firebaseError.code === 'auth/too-many-requests') {
+          errorMessage = authContent.passwordReset.errors.tooManyRequests;
+        }
       }
       
       setError(errorMessage);
@@ -79,11 +83,11 @@ export function PasswordResetDialog({ children, onResetSent }: PasswordResetDial
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Reset Your Password</DialogTitle>
+          <DialogTitle>{authContent.passwordReset.title}</DialogTitle>
           <DialogDescription>
             {success 
-              ? "Check your email for password reset instructions."
-              : "Enter your email address and we'll send you a link to reset your password."
+              ? authContent.passwordReset.successDescription
+              : authContent.passwordReset.description
             }
           </DialogDescription>
         </DialogHeader>
@@ -92,22 +96,21 @@ export function PasswordResetDialog({ children, onResetSent }: PasswordResetDial
           <div className="space-y-4">
             <div className="p-4 bg-green-50 border border-green-200 rounded-md">
               <p className="text-sm text-green-800">
-                ✅ Password reset email sent successfully!
+                {authContent.passwordReset.success.title}
               </p>
               <p className="text-sm text-green-700 mt-2">
-                Check your inbox and spam folder for an email from Firebase Auth. 
-                Follow the instructions in the email to reset your password.
+                {authContent.passwordReset.success.message}
               </p>
             </div>
             
             <div className="p-4 bg-blue-50 border border-blue-200 rounded-md">
               <p className="text-sm text-blue-800">
-                <strong>Didn't receive the email?</strong>
+                <strong>{authContent.passwordReset.success.troubleshootTitle}</strong>
               </p>
               <ul className="text-sm text-blue-700 mt-1 list-disc list-inside">
-                <li>Check your spam/junk folder</li>
-                <li>Make sure you entered the correct email address</li>
-                <li>Try again in a few minutes</li>
+                {authContent.passwordReset.success.troubleshootItems.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -122,12 +125,12 @@ export function PasswordResetDialog({ children, onResetSent }: PasswordResetDial
             <form onSubmit={handlePasswordReset} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">
-                  Email Address
+                  {authContent.passwordReset.emailLabel}
                 </label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder={authContent.passwordReset.emailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -137,13 +140,13 @@ export function PasswordResetDialog({ children, onResetSent }: PasswordResetDial
               
               <DialogFooter>
                 <Button variant="outline" onClick={handleClose} disabled={isLoading}>
-                  Cancel
+                  {authContent.passwordReset.cancelButton}
                 </Button>
                 <Button 
                   type="submit" 
                   disabled={isLoading || !email.trim()}
                 >
-                  {isLoading ? 'Sending...' : 'Send Reset Email'}
+                  {isLoading ? authContent.passwordReset.sendingText : authContent.passwordReset.sendButton}
                 </Button>
               </DialogFooter>
             </form>
@@ -153,13 +156,13 @@ export function PasswordResetDialog({ children, onResetSent }: PasswordResetDial
         {success && (
           <DialogFooter>
             <Button onClick={handleClose}>
-              Close
+              {authContent.passwordReset.closeButton}
             </Button>
             <Button 
               variant="outline" 
               onClick={() => setSuccess(false)}
             >
-              Send Another Email
+              {authContent.passwordReset.sendAnotherButton}
             </Button>
           </DialogFooter>
         )}

@@ -9,8 +9,7 @@ import {
   DialogDescription, 
   DialogHeader, 
   DialogTitle, 
-  DialogTrigger,
-  DialogFooter
+  DialogTrigger
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -39,8 +38,9 @@ export function LoginDialog({ children, onLoginSuccess }: LoginDialogProps) {
       await signInWithEmail(email, password);
       setOpen(false);
       onLoginSuccess?.();
-    } catch (error: any) {
-      setError(error.message || authContent.login.errors.signInFailed);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : authContent.login.errors.signInFailed;
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -54,8 +54,9 @@ export function LoginDialog({ children, onLoginSuccess }: LoginDialogProps) {
       await signInWithGoogle();
       setOpen(false);
       onLoginSuccess?.();
-    } catch (error: any) {
-      setError(error.message || authContent.login.errors.signInGoogleFailed);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : authContent.login.errors.signInGoogleFailed;
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }

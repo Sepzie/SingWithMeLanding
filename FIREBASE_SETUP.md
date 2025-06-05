@@ -55,7 +55,15 @@ Replace the values with your actual Firebase configuration values from step 3.
 4. Configure your OAuth consent screen
 5. Add your authorized redirect URIs
 
-## 7. Test the Implementation
+## 7. Deploy Your Cloud Function
+
+Since account deletion now uses your Firebase Cloud Function, make sure you have deployed the `deleteUserAccount` function to your Firebase project:
+
+```bash
+firebase deploy --only functions
+```
+
+## 8. Test the Implementation
 
 1. Start your development server: `npm run dev`
 2. Navigate to `/account`
@@ -63,7 +71,7 @@ Replace the values with your actual Firebase configuration values from step 3.
    - Sign in with email/password
    - Sign in with Google
    - Password reset
-   - Account deletion
+   - Account deletion (will call your Cloud Function)
 
 ## Features Implemented
 
@@ -71,24 +79,29 @@ Replace the values with your actual Firebase configuration values from step 3.
 - Unified interface for all account operations
 - Displays user information when signed in
 - Provides access to all authentication functions
+- Content managed through JSON file for easy localization
 
 ### Login Dialog
 - Email/password authentication
 - Google OAuth authentication  
 - Error handling and validation
 - Responsive design
+- Fully internationalized content
 
 ### Account Deletion Flow
 - Multi-step confirmation process
 - Automatic reauthentication for security
 - Supports both email and Google users
+- **Uses Firebase Cloud Function** for server-side account deletion
 - Proper cleanup and sign-out
+- All content externalized to JSON
 
 ### Password Reset
 - Email-based password reset
 - Error handling for common scenarios
 - Success confirmation with instructions
 - Option to resend reset email
+- Content managed through JSON
 
 ## Security Features
 

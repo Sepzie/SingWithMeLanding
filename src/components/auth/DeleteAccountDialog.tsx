@@ -64,9 +64,10 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
       }
       
       setStep('final');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Reauthentication failed:', error);
-      setError(error.message || authContent.deleteAccount.reauthStep.reauthFailed);
+      const errorMessage = error instanceof Error ? error.message : authContent.deleteAccount.reauthStep.reauthFailed;
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -81,9 +82,10 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
       await signOut();
       setOpen(false);
       onAccountDeleted?.();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Account deletion failed:', error);
-      setError(error.message || authContent.deleteAccount.finalStep.deleteFailed);
+      const errorMessage = error instanceof Error ? error.message : authContent.deleteAccount.finalStep.deleteFailed;
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -153,14 +155,14 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
             
             <DialogFooter>
               <Button variant="outline" onClick={() => setOpen(false)}>
-                Cancel
+                {authContent.deleteAccount.confirmStep.cancelButton}
               </Button>
               <Button 
                 variant="destructive" 
                 onClick={handleDeleteConfirmation}
                 disabled={isLoading || confirmText !== 'DELETE'}
               >
-                Continue
+                {authContent.deleteAccount.confirmStep.continueButton}
               </Button>
             </DialogFooter>
           </>
@@ -169,9 +171,9 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
         {step === 'reauthenticate' && (
           <>
             <DialogHeader>
-              <DialogTitle>Confirm Your Identity</DialogTitle>
+              <DialogTitle>{authContent.deleteAccount.reauthStep.title}</DialogTitle>
               <DialogDescription>
-                For security, please confirm your identity before deleting your account.
+                {authContent.deleteAccount.reauthStep.description}
               </DialogDescription>
             </DialogHeader>
             
@@ -185,12 +187,12 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
               {requiresPasswordReauth ? (
                 <div className="space-y-2">
                   <label htmlFor="password" className="text-sm font-medium">
-                    Enter your password:
+                    {authContent.deleteAccount.reauthStep.passwordLabel}
                   </label>
                   <Input
                     id="password"
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder={authContent.deleteAccount.reauthStep.passwordPlaceholder}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading}
@@ -199,7 +201,7 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
               ) : (
                 <div className="p-4 bg-blue-50 border border-blue-200 rounded-md">
                   <p className="text-sm text-blue-800">
-                    You'll be prompted to sign in with Google to confirm your identity.
+                    {authContent.deleteAccount.reauthStep.googleMessage}
                   </p>
                 </div>
               )}
@@ -207,13 +209,13 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
             
             <DialogFooter>
               <Button variant="outline" onClick={() => setStep('confirm')}>
-                Back
+                {authContent.deleteAccount.reauthStep.backButton}
               </Button>
               <Button 
                 onClick={handleReauthentication}
                 disabled={isLoading || (requiresPasswordReauth && !password)}
               >
-                {isLoading ? 'Confirming...' : 'Confirm Identity'}
+                {isLoading ? authContent.deleteAccount.reauthStep.confirmingText : authContent.deleteAccount.reauthStep.confirmButton}
               </Button>
             </DialogFooter>
           </>
@@ -222,9 +224,9 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
         {step === 'final' && (
           <>
             <DialogHeader>
-              <DialogTitle className="text-red-600">Final Confirmation</DialogTitle>
+              <DialogTitle className="text-red-600">{authContent.deleteAccount.finalStep.title}</DialogTitle>
               <DialogDescription>
-                You have been reauthenticated. Click the button below to permanently delete your account.
+                {authContent.deleteAccount.finalStep.description}
               </DialogDescription>
             </DialogHeader>
             
@@ -237,21 +239,21 @@ export function DeleteAccountDialog({ children, onAccountDeleted }: DeleteAccoun
               
               <div className="p-4 bg-red-50 border border-red-200 rounded-md">
                 <p className="text-sm text-red-800 font-medium">
-                  Last chance! This action cannot be undone.
+                  {authContent.deleteAccount.finalStep.lastChanceMessage}
                 </p>
               </div>
             </div>
             
             <DialogFooter>
               <Button variant="outline" onClick={() => setStep('reauthenticate')}>
-                Back
+                {authContent.deleteAccount.finalStep.backButton}
               </Button>
               <Button 
                 variant="destructive" 
                 onClick={handleFinalDelete}
                 disabled={isLoading}
               >
-                {isLoading ? 'Deleting Account...' : 'Delete My Account'}
+                {isLoading ? authContent.deleteAccount.finalStep.deletingText : authContent.deleteAccount.finalStep.deleteButton}
               </Button>
             </DialogFooter>
           </>
