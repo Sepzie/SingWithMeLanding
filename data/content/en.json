@@ -178,6 +178,10 @@
   },
   "navigation": [
     {
+      "label": "Account",
+      "href": "/account"
+    },
+    {
       "label": "Privacy",
       "href": "/privacy"
     },
@@ -186,6 +190,142 @@
       "href": "/terms"
     }
   ],
+  "auth": {
+    "accountManagement": {
+      "title": "Account Management",
+      "subtitle": "Manage your SingWithMe account settings",
+      "loading": "Loading...",
+      "signInRequired": {
+        "title": "Sign In Required",
+        "description": "Please sign in to manage your account settings, reset your password, or delete your account.",
+        "signInButton": "Sign In to Your Account",
+        "resetPasswordButton": "Reset Password",
+        "orText": "Or"
+      },
+      "accountInfo": {
+        "title": "Account Information", 
+        "description": "Your current account details",
+        "email": "Email",
+        "signInMethod": "Sign-in Method",
+        "accountCreated": "Account Created",
+        "providerGoogle": "Google",
+        "providerEmail": "Email & Password",
+        "unknownDate": "Unknown"
+      },
+      "accountActions": {
+        "title": "Account Actions",
+        "description": "Manage your account settings and data",
+        "passwordManagement": {
+          "title": "Password Management",
+          "description": "Reset your password if you signed up with email",
+          "button": "Reset Password"
+        },
+        "signOut": {
+          "title": "Sign Out",
+          "description": "Sign out of your current session",
+          "button": "Sign Out"
+        }
+      },
+      "dangerZone": {
+        "title": "Danger Zone",
+        "description": "Irreversible actions that will permanently affect your account",
+        "deleteAccount": {
+          "title": "Delete Account",
+          "description": "Permanently delete your account and all associated data. This action cannot be undone.",
+          "button": "Delete My Account"
+        }
+      }
+    },
+    "login": {
+      "title": "Sign In to Your Account",
+      "description": "Sign in to manage your account settings and delete your account if needed.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password", 
+      "passwordPlaceholder": "Enter your password",
+      "signInEmailButton": "Sign In with Email",
+      "signInGoogleButton": "Sign In with Google",
+      "signingInText": "Signing in...",
+      "orContinueWith": "Or continue with",
+      "errors": {
+        "signInFailed": "Failed to sign in",
+        "signInGoogleFailed": "Failed to sign in with Google"
+      }
+    },
+    "deleteAccount": {
+      "confirmStep": {
+        "title": "Delete Account",
+        "description": "This action cannot be undone. This will permanently delete your account and remove all your data from our servers.",
+        "warningTitle": "Warning:",
+        "warningText": "Deleting your account will:",
+        "warningItems": [
+          "Permanently delete all your account data",
+          "Remove access to your uploaded songs and recordings",
+          "Cannot be undone"
+        ],
+        "confirmLabel": "Type \"DELETE\" to confirm:",
+        "confirmPlaceholder": "Type DELETE",
+        "cancelButton": "Cancel",
+        "continueButton": "Continue",
+        "confirmError": "Please type \"DELETE\" to confirm"
+      },
+      "reauthStep": {
+        "title": "Confirm Your Identity",
+        "description": "For security, please confirm your identity before deleting your account.",
+        "passwordLabel": "Enter your password:",
+        "passwordPlaceholder": "Enter your password",
+        "googleMessage": "You'll be prompted to sign in with Google to confirm your identity.",
+        "backButton": "Back",
+        "confirmButton": "Confirm Identity",
+        "confirmingText": "Confirming...",
+        "passwordRequired": "Password is required for reauthentication",
+        "reauthFailed": "Failed to reauthenticate. Please try again."
+      },
+      "finalStep": {
+        "title": "Final Confirmation", 
+        "description": "You have been reauthenticated. Click the button below to permanently delete your account.",
+        "lastChanceMessage": "Last chance! This action cannot be undone.",
+        "backButton": "Back",
+        "deleteButton": "Delete My Account",
+        "deletingText": "Deleting Account...",
+        "deleteFailed": "Failed to delete account. Please try again."
+      }
+    },
+    "passwordReset": {
+      "title": "Reset Your Password",
+      "description": "Enter your email address and we'll send you a link to reset your password.",
+      "successDescription": "Check your email for password reset instructions.",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "cancelButton": "Cancel",
+      "sendButton": "Send Reset Email",
+      "sendingText": "Sending...",
+      "closeButton": "Close",
+      "sendAnotherButton": "Send Another Email",
+      "success": {
+        "title": "✅ Password reset email sent successfully!",
+        "message": "Check your inbox and spam folder for an email from Firebase Auth. Follow the instructions in the email to reset your password.",
+        "troubleshootTitle": "Didn't receive the email?",
+        "troubleshootItems": [
+          "Check your spam/junk folder",
+          "Make sure you entered the correct email address", 
+          "Try again in a few minutes"
+        ]
+      },
+      "errors": {
+        "sendFailed": "Failed to send password reset email",
+        "userNotFound": "No account found with this email address",
+        "invalidEmail": "Please enter a valid email address",
+        "tooManyRequests": "Too many requests. Please try again later"
+      }
+    },
+    "banner": {
+      "title": "Account Management",
+      "description": "Need to manage your SingWithMe account? You can sign in, reset your password, or delete your account.",
+      "manageButton": "Manage Account",
+      "deleteButton": "Delete Account"
+    }
+  },
   "legal": {
     "privacy": {
       "title": "Privacy Policy",

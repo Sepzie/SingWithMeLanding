@@ -70,6 +70,7 @@ export const seoMetadata = siteIdentity.seo;
 
 // Export specific sections for easy access
 export const navigationLinks: NavigationLink[] = contentEn.navigation;
+export const authContent = contentEn.auth;
 export const legalContent = {
   privacy: contentEn.legal.privacy,
   terms: contentEn.legal.terms,
