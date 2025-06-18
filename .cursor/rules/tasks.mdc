@@ -1,0 +1,150 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Development Tasks - Feature Flags & Beta Testing
+
+## Overview
+We're implementing two main features:
+1. **Toggleable Google Sign-in** via feature flags
+2. **Dynamic App Store Button Behavior** with beta testing signup
+
+## Development Guidelines
+
+### Code Standards
+- **Follow Existing UI Design Language**: Review current component patterns and styling before implementing new features
+- **Check Existing Implementations**: Look for similar modal, form, and button patterns already in the codebase
+- **Maintain Consistency**: Use established component library, styling conventions, and interaction patterns
+
+### Content Management
+- **ALL user-facing text content MUST be stored in**: `data/content/en.json`
+- **No hardcoded strings**: Modal text, button labels, form placeholders, error messages, etc.
+- **Localization Ready**: Structure content keys logically for future i18n support
+
+---
+
+## Task 1: Google Sign-in Feature Flag
+
+### Requirements
+- Add environment variable to control Google sign-in visibility
+- Make the "Sign-in with Google" feature toggleable
+- Use feature flag pattern for clean implementation
+
+### Implementation Details
+- **Environment Variable**: `ENABLE_GOOGLE_SIGNIN` (boolean)
+- **Default State**: Define appropriate default (true/false)
+- **UI Behavior**: Hide/show sign-in button based on flag
+
+---
+
+## Task 2: Dynamic App Store Buttons
+
+### Current State
+- App store buttons currently show "Coming Soon" message
+
+### New Behavior Options
+The buttons should support **three different states** controlled by feature flags:
+
+1. **Coming Soon** (current behavior)
+2. **Beta Testing Signup** (new feature)
+3. **Direct to Store** (future state)
+
+### Beta Testing Signup Modal
+
+#### UI Components Needed
+- Modal dialog triggered by app store button click
+- Form fields:
+  - Name (required)
+  - Email (required)
+  - Newsletter opt-in checkbox ("Get news about our app")
+
+#### Firestore Integration
+- **Collection**: `email_list`
+- **Document Structure**:
+  ```javascript
+  {
+    name: string,
+    email: string,
+    beta_tester: boolean,
+    newsletter: boolean,
+    platform: {
+      apple: boolean,
+      android: boolean
+    },
+    created_at: timestamp,
+    updated_at: timestamp
+  }
+  ```
+
+#### Email Handling Logic
+- **Duplicate Prevention**: Check if email already exists before creating new document
+- **Platform Updates**: If email exists, update the appropriate platform boolean (apple/android) to true
+- **Data Integrity**: Maintain single record per email address while tracking multiple platform signups
+
+### Feature Flag Configuration
+
+#### Environment Variables Needed
+- `APP_STORE_BUTTON_MODE`: 
+  - `"coming_soon"` - Show "Coming Soon" message
+  - `"beta_signup"` - Show beta testing modal
+  - `"direct_link"` - Navigate to actual store pages
+
+#### Store-Specific Handling
+- **iOS Button**: Handle App Store behavior
+- **Android Button**: Handle Play Store behavior
+- Consider separate flags if different behavior needed per platform
+
+---
+
+## Implementation Checklist
+
+### Phase 1: Google Sign-in Flag
+- [ ] Add `ENABLE_GOOGLE_SIGNIN` environment variable
+- [ ] Update sign-in component to check feature flag
+- [ ] Test toggle functionality
+
+### Phase 2: App Store Button System
+- [ ] Add `APP_STORE_BUTTON_MODE` environment variable
+- [ ] Review existing modal and form components for consistency
+- [ ] Create beta signup modal component following current design patterns
+- [ ] Add all text content to `data/content/en.json`
+- [ ] Implement form validation
+- [ ] Set up Firestore collection and document structure
+- [ ] Add form submission logic with duplicate email handling
+- [ ] Implement platform-specific signup tracking (apple/android)
+- [ ] Implement conditional button behavior
+- [ ] Add error handling and success states
+
+### Phase 3: Testing & Polish
+- [ ] Test all three button modes
+- [ ] Verify Firestore data persistence
+- [ ] Test form validation
+- [ ] Ensure mobile responsiveness
+- [ ] Add loading states and user feedback
+
+---
+
+## Technical Considerations
+
+### Environment Variables
+- Ensure proper environment variable handling across development/production
+- Consider using a centralized feature flag service if scaling
+
+### Data Validation
+- Email format validation
+- **Duplicate email handling**: Query existing documents by email before creating new entries
+- **Platform tracking**: Update platform booleans (apple/android) for existing emails
+- Rate limiting for form submissions
+
+### User Experience
+- Clear success/error messaging
+- Smooth modal transitions
+- Accessible form design
+- Mobile-friendly modal layout
+
+### Security
+- Input sanitization
+- Firestore security rules for email collection
+
+- Consider GDPR compliance for email collection
