@@ -10,7 +10,7 @@ import {
   EmailAuthProvider
 } from 'firebase/auth';
 import { getFunctions, httpsCallable, Functions } from 'firebase/functions';
-import { getFirestore, Firestore } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   // These should be replaced with your actual Firebase config
