@@ -78,14 +78,14 @@
       {
         "number": 2,
         "title": "Get Lyrics",
-        "description": "Our AI transcribes the lyrics so you can follow along while singing",
+        "description": "Our AI transcribes the lyrics so you can see each line as you practice",
         "icon": "📝",
         "color": "secondary"
       },
       {
         "number": 3,
         "title": "Record Yourself",
-        "description": "Sing along with the instrumental and record your voice",
+        "description": "Listen to each line, then record yourself singing it",
         "icon": "🎤",
         "color": "accent"
       },
@@ -101,7 +101,7 @@
       {
         "id": "upload",
         "title": "Upload Any Song",
-        "description": "Upload an MP3 and our AI transcribes the lyrics so you can follow along while practicing",
+        "description": "Upload an MP3 and our AI transcribes the lyrics so you can see each line as you practice",
         "screenshot": "/screenshots/upload.png",
         "alt": "SingWithMe upload interface"
       },
@@ -145,7 +145,7 @@
       {
         "icon": "🎤",
         "title": "Simple Recording & Comparison",
-        "description": "Record yourself singing along, then easily switch between your recording and the original to compare and identify areas for improvement."
+        "description": "Listen to each line, then record yourself singing it. Easily switch between your recording and the original to compare and identify areas for improvement."
       },
       {
         "icon": "🔁",
@@ -439,7 +439,7 @@
         },
         {
           "title": "Service Description",
-          "content": "SingWithMe is a vocal practice platform that uses AI technology to process uploaded songs and provide automated lyrics transcription. Users can upload songs, receive transcribed lyrics, and practice singing with voice recording and playback comparison tools that allow you to hear your performance alongside the original track."
+          "content": "SingWithMe is a vocal practice platform that uses AI technology to process uploaded songs and provide automated lyrics transcription. Users can upload songs, receive transcribed lyrics, and practice by listening to each line then recording themselves singing it. Voice recording and playback comparison tools allow you to hear your performance compared to the original track."
         },
         {
           "title": "User Responsibilities",
