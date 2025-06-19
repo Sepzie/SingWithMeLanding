@@ -10,6 +10,7 @@ import {
   EmailAuthProvider
 } from 'firebase/auth';
 import { getFunctions, httpsCallable, Functions } from 'firebase/functions';
+import { getFirestore, Firestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   // These should be replaced with your actual Firebase config
@@ -54,6 +55,9 @@ if (typeof window !== 'undefined' && isValidFirebaseConfig) {
 // Always export a valid auth object
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+
+// Initialize Firestore
+export const db = getFirestore(app);
 
 // Auth functions with proper validation
 export const signInWithEmail = async (email: string, password: string) => {

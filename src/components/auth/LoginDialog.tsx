@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { auth, signInWithEmail, signInWithGoogle } from '@/lib/firebase';
 import { authContent } from '@/lib/data';
+import { getClientFeatureFlags } from '@/lib/feature-flags';
 
 interface LoginDialogProps {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ export function LoginDialog({ children, onLoginSuccess }: LoginDialogProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [user] = useAuthState(auth);
+  const featureFlags = getClientFeatureFlags();
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,25 +137,29 @@ export function LoginDialog({ children, onLoginSuccess }: LoginDialogProps) {
             </Button>
           </form>
           
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">
-                {authContent.login.orContinueWith}
-              </span>
-            </div>
-          </div>
-          
-          <Button 
-            variant="outline" 
-            className="w-full" 
-            onClick={handleGoogleLogin}
-            disabled={isLoading}
-          >
-            {isLoading ? authContent.login.signingInText : authContent.login.signInGoogleButton}
-          </Button>
+          {featureFlags.enableGoogleSignin && (
+            <>
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-2 text-muted-foreground">
+                    {authContent.login.orContinueWith}
+                  </span>
+                </div>
+              </div>
+              
+              <Button 
+                variant="outline" 
+                className="w-full" 
+                onClick={handleGoogleLogin}
+                disabled={isLoading}
+              >
+                {isLoading ? authContent.login.signingInText : authContent.login.signInGoogleButton}
+              </Button>
+            </>
+          )}
         </div>
       </DialogContent>
     </Dialog>

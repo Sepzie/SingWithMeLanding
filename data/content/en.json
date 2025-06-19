@@ -21,7 +21,32 @@
       "line1": "Get it on",
       "line2": "Google Play"
     },
-    "comingSoon": "Coming Soon!"
+    "comingSoon": "Coming Soon!",
+    "betaSignup": {
+      "title": "Join the Beta",
+      "description": "Be among the first to experience SingWithMe! Sign up for beta testing and get early access to our mobile app.",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "newsletterLabel": "Get news about our app",
+      "platformTitle": "Which platform are you interested in?",
+      "submitButton": "Join Beta Testing",
+      "submittingText": "Joining...",
+      "cancelButton": "Cancel",
+      "success": {
+        "title": "🎉 Welcome to the Beta!",
+        "description": "Thank you for signing up! We'll notify you as soon as the beta is available for your platform.",
+        "closeButton": "Close"
+      },
+      "errors": {
+        "submitFailed": "Failed to join beta testing. Please try again.",
+        "invalidEmail": "Please enter a valid email address",
+        "nameRequired": "Name is required",
+        "emailRequired": "Email address is required",
+        "networkError": "Network error. Please check your connection and try again."
+      }
+    }
   },
   "features": {
     "sectionTitle": "How SingWithMe Works",
