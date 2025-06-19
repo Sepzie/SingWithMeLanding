@@ -133,34 +133,34 @@
     "subtitle": "A simple, focused approach to practicing your singing with any song you love",
     "items": [
       {
-        "icon": "🎼",
-        "title": "Any Song You Want",
-        "description": "Upload any MP3 file and our AI will transcribe the lyrics so you can follow along while singing."
+        "icon": "🌍",
+        "title": "Any Song, Any Language",
+        "description": "Upload songs in any language and our AI will transcribe the lyrics accurately. Perfect for learning foreign language songs or practicing diverse musical styles."
+      },
+      {
+        "icon": "🎓",
+        "title": "Perfect for Music Students",
+        "description": "Bring pieces from your practice sessions or assignments from your vocal instructor. Ideal for classical, musical theater, and contemporary vocal training."
       },
       {
         "icon": "🎤",
-        "title": "Simple Recording",
-        "description": "Record yourself singing along, then easily switch between your recording and the original to compare."
+        "title": "Simple Recording & Comparison",
+        "description": "Record yourself singing along, then easily switch between your recording and the original to compare and identify areas for improvement."
       },
       {
         "icon": "🔁",
         "title": "Practice Your Way",
-        "description": "Listen, record, and compare as many times as you want. Perfect for learning songs at your own pace."
-      },
-      {
-        "icon": "📱",
-        "title": "Easy to Use",
-        "description": "Clean, intuitive interface focused on the essentials - no complicated features to get in your way."
+        "description": "Listen, record, and compare as many times as you want. Perfect for learning songs at your own pace and building confidence."
       },
       {
         "icon": "🎵",
         "title": "Line-by-Line Practice",
-        "description": "Focus on specific parts of the song with synchronized lyrics and easy navigation controls."
+        "description": "Focus on specific parts of the song with synchronized lyrics and easy navigation controls. Master challenging passages one line at a time."
       },
       {
         "icon": "💾",
-        "title": "Save Your Progress",
-        "description": "Keep your recordings and practice sessions so you can track how you're improving over time."
+        "title": "Track Your Progress",
+        "description": "Keep your recordings and practice sessions so you can track how you're improving over time and share progress with your instructor."
       }
     ],
     "testimonialsTitle": "What People Are Saying",
@@ -206,8 +206,8 @@
         "label": "Upload & Practice"
       },
       {
-        "value": "Clear",
-        "label": "Audio Separation"
+        "value": "Smart",
+        "label": "AI Transcription"
       },
       {
         "value": "Compare",
