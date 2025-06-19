@@ -25,18 +25,32 @@
     "betaSignup": {
       "title": "Join the Beta",
       "description": "Be among the first to experience SingWithMe! Sign up for beta testing and get early access to our mobile app.",
+      "platformSpecific": {
+        "apple": {
+          "title": "Join the iOS Beta",
+          "description": "Get early access to SingWithMe for iPhone and iPad. We'll notify you when the TestFlight beta is ready!",
+          "platformLabel": "iOS (iPhone & iPad)",
+          "submitButton": "Join iOS Beta",
+          "submittingText": "Joining iOS Beta...",
+          "successDescription": "Thank you for signing up! We'll send you a TestFlight invitation as soon as the iOS beta is ready."
+        },
+        "android": {
+          "title": "Join the Android Beta",
+          "description": "Get early access to SingWithMe for Android devices. We'll notify you when the Google Play beta is available!",
+          "platformLabel": "Android",
+          "submitButton": "Join Android Beta",
+          "submittingText": "Joining Android Beta...",
+          "successDescription": "Thank you for signing up! We'll notify you as soon as the Android beta is available on Google Play."
+        }
+      },
       "nameLabel": "Full Name",
       "namePlaceholder": "Enter your full name",
       "emailLabel": "Email Address",
       "emailPlaceholder": "Enter your email address",
       "newsletterLabel": "Get news about our app",
-      "platformTitle": "Which platform are you interested in?",
-      "submitButton": "Join Beta Testing",
-      "submittingText": "Joining...",
       "cancelButton": "Cancel",
       "success": {
         "title": "🎉 Welcome to the Beta!",
-        "description": "Thank you for signing up! We'll notify you as soon as the beta is available for your platform.",
         "closeButton": "Close"
       },
       "errors": {
