@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Dialog, 
   DialogContent, 
@@ -38,9 +38,53 @@ export function BetaSignupDialog({ children, platform }: BetaSignupDialogProps) 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
   const { betaSignup } = siteContent.downloadButtons;
   const platformContent = betaSignup.platformSpecific[platform];
+
+  // Handle mobile keyboard detection
+  useEffect(() => {
+    if (!open) return;
+
+    const handleResize = () => {
+      // Only run on mobile devices
+      if (window.innerWidth > 640) return;
+      
+      // Detect keyboard by checking if viewport height decreased significantly
+      const viewportHeight = window.visualViewport?.height || window.innerHeight;
+      const windowHeight = window.screen.height;
+      const keyboardThreshold = windowHeight * 0.75; // If viewport is less than 75% of screen height
+      
+      setIsKeyboardOpen(viewportHeight < keyboardThreshold);
+    };
+
+    const handleVisualViewportChange = () => {
+      if (window.innerWidth > 640) return;
+      
+      const viewportHeight = window.visualViewport?.height || window.innerHeight;
+      const screenHeight = window.screen.height;
+      setIsKeyboardOpen(viewportHeight < screenHeight * 0.75);
+    };
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+    
+    // Listen for visual viewport changes (better for mobile keyboard detection)
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleVisualViewportChange);
+    }
+
+    // Initial check
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleVisualViewportChange);
+      }
+    };
+  }, [open]);
 
   const validateForm = (): string | null => {
     if (!formData.name.trim()) {
@@ -123,7 +167,13 @@ export function BetaSignupDialog({ children, platform }: BetaSignupDialogProps) 
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent 
+        className={`sm:max-w-[425px] ${
+          isKeyboardOpen 
+            ? 'fixed top-4 left-[50%] translate-x-[-50%] translate-y-0 max-h-[calc(100vh-2rem)] overflow-y-auto' 
+            : ''
+        }`}
+      >
         <DialogHeader>
           <DialogTitle className="flex items-center gap-3">
             {platform === 'apple' ? (
